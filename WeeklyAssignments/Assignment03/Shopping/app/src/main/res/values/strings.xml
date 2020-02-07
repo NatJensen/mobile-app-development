@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Shopping</string>
+    <string name="whatItem_text">What item?</string>
+    <string name="whereItem_text">Where?</string>
+    <string name="listItems_button">LIST ALL ITEMS</string>
+    <string name="newItem_button">ADD NEW ITEM</string>
+    <string name="correct_toast">Item added to list</string>
+    <string name="incorrect_toast">Input text in both fields</string>
+</resources>

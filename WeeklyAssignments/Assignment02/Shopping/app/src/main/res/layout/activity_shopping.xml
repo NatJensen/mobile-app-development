@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="top|center"
+    android:orientation="vertical">
+
+    <!-- TextView and EditText for what item -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/whatItem"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="4dp"
+            android:text="@string/whatItem_text" />
+
+        <EditText
+            android:id="@+id/whatItem_editText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:inputType="text"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+    <!-- TextView and EditText for where to buy item -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/whereItem"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="2dp"
+            android:text="@string/whereItem_text" />
+
+        <EditText
+            android:id="@+id/whereItem_editText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:inputType="text"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+    <!-- Button to add new items -->
+    <Button
+        android:id="@+id/newItem_button"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/newItem_button" />
+
+    <!-- Button to list all items -->
+    <Button
+        android:id="@+id/listItems_button"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/listItems_button" />
+
+    <!-- View to list all the items in the shopping list -->
+    <TextView
+        android:id="@+id/items"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp" />
+
+</LinearLayout>
