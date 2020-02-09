@@ -30,4 +30,8 @@ public class ItemsDB {
         mItemsDB.add(new Item("bread", "bakery"));
         mItemsDB.add(new Item("butter", "Irma"));
     }
+
+    public int dbSize() {
+        return mItemsDB.size();
+    }
 }

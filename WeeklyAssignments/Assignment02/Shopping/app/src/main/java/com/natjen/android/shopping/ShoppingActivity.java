@@ -60,9 +60,9 @@ public class ShoppingActivity extends AppCompatActivity {
                 if (what.isEmpty() || where.isEmpty()) {
                     checkInput(false);
                 } else {
-                    //mCurrentIndex = (mCurrentIndex + 1) % mItemsDB;
                     mItemsDB.addItem(what, where);
                     checkInput(true);
+                    mCurrentIndex = (mCurrentIndex + 1) % mItemsDB.dbSize();
                 }
                 hideKeyboardFrom(ShoppingActivity.this);
             }
@@ -118,9 +118,9 @@ public class ShoppingActivity extends AppCompatActivity {
         int messageResId = 0;
 
         if (userPressedNewItem) {
-            messageResId = R.string.correct_toast;
+            messageResId = R.string.addedItem_toast;
         } else {
-            messageResId = R.string.incorrect_toast;
+            messageResId = R.string.inputItem_toast;
         }
 
         Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show();

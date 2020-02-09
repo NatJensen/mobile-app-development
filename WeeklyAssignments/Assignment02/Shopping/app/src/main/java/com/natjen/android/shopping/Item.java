@@ -10,8 +10,6 @@ public class Item {
         mWhere = where;
     }
 
-
-
     @Override
     public String toString() {
         return oneLine("", " in: ");
