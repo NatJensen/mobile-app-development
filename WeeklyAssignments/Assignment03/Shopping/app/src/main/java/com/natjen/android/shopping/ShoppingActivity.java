@@ -3,13 +3,13 @@ package com.natjen.android.shopping;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
-import android.graphics.Color;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class ShoppingActivity extends AppCompatActivity {
@@ -17,40 +17,40 @@ public class ShoppingActivity extends AppCompatActivity {
     // GUI variables
     private Button mNewItem;
     private Button mListItems;
-    private TextView mItems;
     private EditText mWhatItem;
     private EditText mWhereItem;
 
     // Model: Database of mItems
-    private ItemsDB mItemsDB;
+    private static ItemsDB itemsDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shopping);
 
-        mItemsDB = new ItemsDB();
-        mItemsDB.fillItemsDB();
+        itemsDB = ItemsDB.get(this);
 
-        mItems = (TextView) findViewById(R.id.items);
+        itemsDB.fillItemsDB();
 
-        mNewItem = (Button) findViewById(R.id.newItem_button);
-        mListItems = (Button) findViewById(R.id.listItems_button);
+        mNewItem = findViewById(R.id.newItem_button);
+        mListItems = findViewById(R.id.listItems_button);
 
-        mWhatItem = (EditText) findViewById(R.id.whatItem_editText);
-        mWhereItem = (EditText) findViewById(R.id.whereItem_editText);
+        mWhatItem = findViewById(R.id.whatItem_editText);
+        mWhereItem = findViewById(R.id.whereItem_editText);
 
         mNewItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String what = mWhatItem.getText().toString();
-                String where = mWhereItem.getText().toString();
+                String what = mWhatItem.getText().toString().trim();
+                String where = mWhereItem.getText().toString().trim();
 
-                if (what.isEmpty() || where.isEmpty()) {
-                    checkInput(false);
+                if (!what.isEmpty() && !where.isEmpty()) {
+                    itemsDB.addItem(what, where);
+                    addedItemToast();
+                    mWhatItem.setText("");
+                    mWhereItem.setText("");
                 } else {
-                    mItemsDB.addItem(what, where);
-                    checkInput(true);
+                    inputItemToast();
                 }
                 hideKeyboardFrom(ShoppingActivity.this);
             }
@@ -59,22 +59,24 @@ public class ShoppingActivity extends AppCompatActivity {
         mListItems.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mItems.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                mItems.setText("Shopping List:" + mItemsDB.listItems());
+                Intent intent = ListActivity.newIntent(ShoppingActivity.this);
+                startActivity(intent);
             }
         });
     }
 
-    private void checkInput(boolean userPressedNewItem) {
-        int messageResId = 0;
+    private void addedItemToast() {
+        int messageResId = R.string.addedItem_toast;
+        Toast toast = Toast.makeText(this, messageResId, Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.BOTTOM, 0, 150);
+        toast.show();
+    }
 
-        if (userPressedNewItem) {
-            messageResId = R.string.correct_toast;
-        } else {
-            messageResId = R.string.incorrect_toast;
-        }
-
-        Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show();
+    private void inputItemToast() {
+        int messageResId = R.string.inputItem_toast;
+        Toast toast = Toast.makeText(this, messageResId, Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.BOTTOM, 0, 150);
+        toast.show();
     }
 
     private void hideKeyboardFrom(Activity activity) {

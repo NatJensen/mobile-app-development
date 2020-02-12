@@ -1,9 +1,20 @@
 <resources>
     <string name="app_name">Shopping</string>
+
     <string name="whatItem_text">What item?</string>
     <string name="whereItem_text">Where?</string>
-    <string name="listItems_button">LIST ALL ITEMS</string>
-    <string name="newItem_button">ADD NEW ITEM</string>
-    <string name="correct_toast">Item added to list</string>
-    <string name="incorrect_toast">Input text in both fields</string>
+
+    <string name="listItems_button">List all items</string>
+    <string name="newItem_button">Add new item</string>
+    <string name="deleteItem_button">Delete</string>
+
+    <string name="addedItem_toast">Item added to list</string>
+    <string name="inputItem_toast">Input text in both fields</string>
+
+    <string name="emptyList_toast">Nothing deleted - The list is empty</string>
+
+    <string name="deleteItem_toast">Item has been deleted</string>
+    <string name="noItem_toast">The item does not exist</string>
+
+    <string name="typeWhat_toast">Type in what to delete</string>
 </resources>

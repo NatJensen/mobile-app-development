@@ -1,12 +1,24 @@
 package com.natjen.android.shopping;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class ItemsDB {
+    private static ItemsDB sItemsDB;
+
     private List<Item> mItemsDB;
 
-    public ItemsDB() {
+    public static ItemsDB get(Context context) {
+        if (sItemsDB == null) {
+            sItemsDB = new ItemsDB(context);
+        }
+
+        return sItemsDB;
+    }
+
+    private ItemsDB(Context context) {
         mItemsDB = new ArrayList<>();
     }
 
@@ -28,5 +40,22 @@ public class ItemsDB {
         mItemsDB.add(new Item("milk", "Netto"));
         mItemsDB.add(new Item("bread", "bakery"));
         mItemsDB.add(new Item("butter", "Irma"));
+    }
+
+    public void deleteItem(Item item) {
+        mItemsDB.remove(item);
+    }
+
+    public Item getItem(String what) {
+        for (Item item : mItemsDB) {
+            if (item.getWhat().equals(what)) {
+                return item;
+            }
+        }
+        return null;
+    }
+
+    public int dbSize() {
+        return mItemsDB.size();
     }
 }
