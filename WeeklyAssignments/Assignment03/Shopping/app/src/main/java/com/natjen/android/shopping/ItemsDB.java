@@ -23,8 +23,13 @@ public class ItemsDB {
 
     public String listItems() {
         StringBuilder r = new StringBuilder();
-        for (int i = 0; i < dbSize(); i++) {
-            r.append("\n Buy ").append(mItemsDB.get(i).toString());
+        if (dbSize() == 0) {
+            r.append("The shopping list is empty\nGo back and add items");
+        } else {
+            for (int i = 0; i < dbSize(); i++) {
+                r.append("Buy ").append(mItemsDB.get(i).toString()).append("\n");
+            }
+            return r.toString();
         }
         return r.toString();
     }

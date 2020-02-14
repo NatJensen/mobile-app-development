@@ -14,7 +14,7 @@
     <string name="addedItem_toast">Item added to list</string>
     <string name="inputItem_toast">Input text in both fields</string>
 
-    <string name="emptyList_toast">Nothing deleted - The list is empty</string>
+    <string name="emptyList_toast">Nothing deleted - the list is empty</string>
 
     <string name="deleteItem_toast">Item has been deleted</string>
     <string name="noItem_toast">The item does not exist</string>
