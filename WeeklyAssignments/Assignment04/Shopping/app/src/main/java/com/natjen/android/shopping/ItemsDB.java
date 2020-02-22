@@ -17,7 +17,7 @@ public class ItemsDB {
         return sItemsDB;
     }
 
-    private ItemsDB(Context context) {
+    ItemsDB(Context context) {
         mItemsDB = new ArrayList<>();
     }
 
@@ -34,6 +34,10 @@ public class ItemsDB {
         return r.toString();
     }
 
+    public Item get(int i) {
+        return mItemsDB.get(i);
+    }
+
     public void addItem(String what, String where) {
         mItemsDB.add(new Item(what, where));
     }
@@ -46,8 +50,13 @@ public class ItemsDB {
         mItemsDB.add(new Item("butter", "Irma"));
     }
 
-    public void deleteItem(Item item) {
-        mItemsDB.remove(item);
+    public void deleteItem(String what) {
+        for (Item item : mItemsDB) {
+            if (item.getWhat().equals(what)) {
+                mItemsDB.remove(item);
+                break;
+            }
+        }
     }
 
     public Item getItem(String what) {
