@@ -39,7 +39,7 @@ public class ShoppingUnitTest {
 
         // Testing listItems
         assertEquals(itemsDB.listItems(),
-                "The shopping list is empty\nGo back and add items");
+                "The shopping list is empty");
 
         // Database with a single Item
         itemsDB.addItem("x", "y");
