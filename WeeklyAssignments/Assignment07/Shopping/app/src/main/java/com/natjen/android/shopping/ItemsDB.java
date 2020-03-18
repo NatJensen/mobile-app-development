@@ -62,34 +62,6 @@ class ItemsDB extends Observable {
         notifyObservers();
     }
 
-    /*public void deleteItem(Item item) {
-        String uuidString = item.getId().toString();
-        mDatabase.delete(ItemTable.NAME, ItemTable.Cols.UUID + "=?", new String[]{uuidString});
-        this.setChanged();
-        notifyObservers();
-    }*/
-
-    /*void deleteItem(String what) {
-        for (Item item : mItemsDB) {
-            if (item.getWhat().equals(what)) {
-                mItemsDB.remove(item);
-                break;
-            }
-        }
-
-        this.setChanged();
-        notifyObservers();
-    }*/
-
-    /*Item getItem(String what) {
-        for (Item item : mItemsDB) {
-            if (item.getWhat().equals(what)) {
-                return item;
-            }
-        }
-        return null;
-    }*/
-
     private ItemCursorWrapper queryItems(String whereClause, String[] whereArgs) {
         Cursor cursor = mDatabase.query(
                 ItemTable.NAME,

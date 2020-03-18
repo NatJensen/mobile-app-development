@@ -38,12 +38,6 @@ public class ListFragment extends Fragment implements Observer {
         updateUI();
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        updateUI();
-    }
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -57,6 +51,12 @@ public class ListFragment extends Fragment implements Observer {
         return view;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateUI();
+    }
+
     public void update(Observable observable, Object data) {
         mAdapter.notifyDataSetChanged();
     }
@@ -64,13 +64,21 @@ public class ListFragment extends Fragment implements Observer {
     private void updateUI() {
         List<Item> items = mItemsDB.getItems();
 
-        mAdapter = new ItemAdapter(items);
-        itemList.setAdapter(mAdapter);
-        mAdapter.notifyDataSetChanged();
+        if (mAdapter == null) {
+            mAdapter = new ItemAdapter(items);
+            itemList.setAdapter(mAdapter);
+        } else {
+            mAdapter.notifyDataSetChanged();
+            mAdapter.setItems(items);
+        }
     }
 
     private class ItemHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private TextView mWhatTextView, mWhereTextView, mNoView;
+        private TextView mNoView;
+        private TextView mWhatTextView;
+        private TextView mWhereTextView;
+
+        private Item mItem;
 
         ItemHolder(View itemView) {
             super(itemView);
@@ -81,22 +89,23 @@ public class ListFragment extends Fragment implements Observer {
         }
 
         void bind(Item item, int position) {
+            mItem = item;
             mNoView.setText(getString(R.string.space, position));
-            mWhatTextView.setText(item.getWhat());
-            mWhereTextView.setText(item.getWhere());
+            mWhatTextView.setText(mItem.getWhat());
+            mWhereTextView.setText(mItem.getWhere());
         }
 
         @Override
         public void onClick(View v) {
-            //mItemsDB.deleteItem(itemList.getChildLayoutPosition(v));
+            mItemsDB.deleteItem(mItem.getWhat());
         }
     }
 
     private class ItemAdapter extends RecyclerView.Adapter<ItemHolder> {
         private List<Item> mItems;
 
-        ItemAdapter(List<Item> data) {
-            mItems = data;
+        ItemAdapter(List<Item> items) {
+            mItems = items;
         }
 
         @NotNull
