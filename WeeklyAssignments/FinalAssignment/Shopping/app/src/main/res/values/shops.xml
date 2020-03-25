@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="shops">
+        <item>Aldi</item>
+        <item>Bakery</item>
+        <item>Bilka</item>
+        <item>Fakta</item>
+        <item>Føtex</item>
+        <item>Irma</item>
+        <item>Kvickly</item>
+        <item>Lidl</item>
+        <item>Netto</item>
+        <item>Rema1000</item>
+        <item>Super Brugsen</item>
+    </array>
+</resources>
