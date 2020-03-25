@@ -32,12 +32,6 @@ public class ListFragment extends Fragment implements Observer {
         mItemsDB.addObserver(this);
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        updateUI();
-    }
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -51,14 +45,8 @@ public class ListFragment extends Fragment implements Observer {
         return view;
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        updateUI();
-    }
-
     public void update(Observable observable, Object data) {
-        mAdapter.notifyDataSetChanged();
+        updateUI();
     }
 
     private void updateUI() {

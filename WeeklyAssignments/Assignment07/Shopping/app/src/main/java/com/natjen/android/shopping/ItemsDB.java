@@ -12,7 +12,6 @@ import com.natjen.android.shopping.database.ItemsDbSchema.ItemTable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
-import java.util.UUID;
 
 class ItemsDB extends Observable {
     private static ItemsDB sItemsDB;

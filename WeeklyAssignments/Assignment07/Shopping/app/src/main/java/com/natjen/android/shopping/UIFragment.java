@@ -3,6 +3,7 @@ package com.natjen.android.shopping;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.app.Activity;
 import android.content.Context;
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Objects;
@@ -25,7 +27,7 @@ public class UIFragment extends Fragment implements Observer {
 
     // GUI variables
     private EditText mWhatItem;
-    private EditText mWhereItem;
+    private TextView mWhereItem;
 
     // Model: Database of mItems
     private static ItemsDB mItemsDB;
