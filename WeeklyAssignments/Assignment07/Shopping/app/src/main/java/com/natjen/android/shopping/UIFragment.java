@@ -27,7 +27,7 @@ public class UIFragment extends Fragment implements Observer {
 
     // GUI variables
     private EditText mWhatItem;
-    private TextView mWhereItem;
+    private EditText mWhereItem;
 
     // Model: Database of mItems
     private static ItemsDB mItemsDB;
