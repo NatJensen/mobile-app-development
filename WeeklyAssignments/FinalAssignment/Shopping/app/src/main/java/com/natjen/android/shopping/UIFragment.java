@@ -11,6 +11,9 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
@@ -39,7 +42,26 @@ public class UIFragment extends Fragment implements Observer {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
         mItemsDB = ItemsDB.get(getActivity());
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.fragment_ui, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.api_version:
+                Intent intent = VersionActivity.newIntent(getActivity());
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Nullable
@@ -48,6 +70,7 @@ public class UIFragment extends Fragment implements Observer {
         View view = inflater.inflate(R.layout.fragment_ui, container, false);
 
         mWhatItem = view.findViewById(R.id.whatItem_editText);
+
         mWhereItem = view.findViewById(R.id.whereItem_textView);
         mWhereItem.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,7 +120,7 @@ public class UIFragment extends Fragment implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        // Empty for now - Shopping v. 6
+        // Empty
     }
 
     @Override

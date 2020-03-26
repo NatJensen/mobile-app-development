@@ -4,6 +4,9 @@
     <string name="whatToBuy_headline">What item to buy</string>
     <string name="shoppingList_headline">Shopping List</string>
 
+    <string name="apiVersion_headline">API Version</string>
+    <string name="apiVersion_text">The current API version of your device is:</string>
+
     <string name="whatItem_text">What item?</string>
     <string name="whereItem_text">Where?</string>¨
     <string name="whereItemShop_text">Click to add a shop</string>
@@ -12,7 +15,7 @@
     <string name="newItem_button">Add new item</string>
     <string name="deleteItem_button">Delete item</string>
 
-    <string name="item_no_label">Item no</string>
+    <string name="item_no_label">Item no.</string>
     <string name="item_what_label">Item</string>
     <string name="item_where_label">Shop</string>
 
@@ -29,10 +32,4 @@
     <string name="space">%d</string>
 
     <string name="shop_picker_title">Choose a shop</string>
-    <string name="shop_picker_bakery">Bakery</string>
-    <string name="shop_picker_bilka">Bilka</string>
-    <string name="shop_picker_fakta">Fakta</string>
-    <string name="shop_picker_irma">Irma</string>
-    <string name="shop_picker_kvickly">Kvickly</string>
-    <string name="shop_picker_netto">Netto</string>
 </resources>

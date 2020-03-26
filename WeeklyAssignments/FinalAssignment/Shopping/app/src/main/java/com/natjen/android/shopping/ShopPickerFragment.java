@@ -45,7 +45,7 @@ public class ShopPickerFragment extends DialogFragment {
 
                         mWhere.setText(shops[which]);
 
-                        sendResult(Activity.RESULT_OK, mWhere.toString());
+                        sendResult(Activity.RESULT_OK, mWhere.getText().toString());
                     }
                 })
                 .create();

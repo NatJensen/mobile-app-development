@@ -12,11 +12,15 @@
         <activity android:name=".ShoppingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ListActivity" />
+        <activity
+            android:name=".ListActivity"
+            android:parentActivityName=".ShoppingActivity" />
+        <activity
+            android:name=".VersionActivity"
+            android:parentActivityName=".ShoppingActivity" />
     </application>
 
 </manifest>
