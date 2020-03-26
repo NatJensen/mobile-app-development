@@ -26,6 +26,6 @@ public class ItemBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        // Empty for now
     }
 }

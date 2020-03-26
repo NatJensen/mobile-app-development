@@ -13,7 +13,6 @@
 
     <string name="listItems_button">List all items</string>
     <string name="newItem_button">Add new item</string>
-    <string name="deleteItem_button">Delete item</string>
 
     <string name="item_no_label">Item no.</string>
     <string name="item_what_label">Item</string>
@@ -21,11 +20,6 @@
 
     <string name="addedItem_toast">Item added to list</string>
     <string name="inputItem_toast">Input text in both fields</string>
-
-    <string name="emptyList_toast">Nothing deleted - the list is empty</string>
-
-    <string name="deleteItem_toast">Item has been deleted</string>
-    <string name="noItem_toast">The item does not exist</string>
 
     <string name="typeWhat_toast">Type in what to delete</string>
 

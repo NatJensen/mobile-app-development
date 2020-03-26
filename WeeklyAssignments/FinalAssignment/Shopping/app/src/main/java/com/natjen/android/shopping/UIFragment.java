@@ -29,7 +29,6 @@ import java.util.Observer;
 public class UIFragment extends Fragment implements Observer {
 
     private static final String DIALOG_SHOP = "DialogShop";
-
     private static final int REQUEST_SHOP = 0;
 
     // GUI variables
@@ -54,14 +53,12 @@ public class UIFragment extends Fragment implements Observer {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.api_version:
-                Intent intent = VersionActivity.newIntent(getActivity());
-                startActivity(intent);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.api_version) {
+            Intent intent = VersionActivity.newIntent(getActivity());
+            startActivity(intent);
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     @Nullable
@@ -120,7 +117,7 @@ public class UIFragment extends Fragment implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        // Empty
+        // Empty for now
     }
 
     @Override

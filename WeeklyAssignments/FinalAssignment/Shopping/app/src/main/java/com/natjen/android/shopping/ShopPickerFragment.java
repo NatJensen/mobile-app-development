@@ -39,10 +39,10 @@ public class ShopPickerFragment extends DialogFragment {
                 .setItems(shops, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         View v = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_ui, null);
+
                         TextView mWhere;
 
                         mWhere = v.findViewById(R.id.whereItem_textView);
-
                         mWhere.setText(shops[which]);
 
                         sendResult(Activity.RESULT_OK, mWhere.getText().toString());
@@ -59,7 +59,6 @@ public class ShopPickerFragment extends DialogFragment {
         Intent intent = new Intent();
         intent.putExtra(EXTRA_SHOP, shop);
 
-        getTargetFragment()
-                .onActivityResult(getTargetRequestCode(), resultCode, intent);
+        getTargetFragment().onActivityResult(getTargetRequestCode(), resultCode, intent);
     }
 }
