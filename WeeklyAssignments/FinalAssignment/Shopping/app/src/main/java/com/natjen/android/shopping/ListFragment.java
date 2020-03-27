@@ -85,7 +85,7 @@ public class ListFragment extends Fragment implements Observer {
 
         @Override
         public void onClick(View v) {
-            mItemsDB.deleteItem(mItem.getWhat());
+            mItemsDB.deleteItem(mItem);
         }
     }
 

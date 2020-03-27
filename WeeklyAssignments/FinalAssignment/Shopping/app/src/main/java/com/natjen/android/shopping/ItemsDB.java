@@ -55,8 +55,9 @@ class ItemsDB extends Observable {
         notifyObservers();
     }
 
-    public void deleteItem(String what) {
-        mDatabase.delete(ItemTable.NAME, ItemTable.Cols.WHAT + "=?", new String[]{what});
+    public void deleteItem(Item item) {
+        String id = item.getId().toString();
+        mDatabase.delete(ItemTable.NAME, ItemTable.Cols.UUID + "=?", new String[]{id});
         this.setChanged();
         notifyObservers();
     }
@@ -77,6 +78,7 @@ class ItemsDB extends Observable {
 
     private static ContentValues getContentValues(Item item) {
         ContentValues values = new ContentValues();
+        values.put(ItemTable.Cols.UUID, item.getId().toString());
         values.put(ItemTable.Cols.WHAT, item.getWhat());
         values.put(ItemTable.Cols.WHERE, item.getWhere());
 
