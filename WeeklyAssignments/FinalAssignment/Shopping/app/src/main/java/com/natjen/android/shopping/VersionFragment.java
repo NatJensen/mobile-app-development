@@ -22,7 +22,7 @@ public class VersionFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_version, container, false);
 
         TextView APIVersion = view.findViewById(R.id.apiVersion);
-        APIVersion.setText(Build.VERSION.RELEASE);
+        APIVersion.setText(String.valueOf(Build.VERSION.SDK_INT));
 
         return view;
     }

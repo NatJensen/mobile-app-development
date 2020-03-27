@@ -52,7 +52,6 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/list_recycler_view"
         app:layout_constraintEnd_toStartOf="@+id/item_where_label"
-        app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintHorizontal_weight="3"
         app:layout_constraintStart_toEndOf="@+id/item_no_label"
         app:layout_constraintTop_toBottomOf="@+id/shoppingList" />
@@ -69,7 +68,6 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/list_recycler_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintHorizontal_weight="3"
         app:layout_constraintStart_toEndOf="@+id/item_what_label"
         app:layout_constraintTop_toBottomOf="@+id/shoppingList" />
