@@ -6,14 +6,17 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
@@ -25,9 +28,30 @@ public class ListFragment extends Fragment implements Observer {
     private RecyclerView itemList;
     private ItemAdapter mAdapter;
 
+    private NetworkDB netDB;
+
+    private class FetchJSONTask extends AsyncTask<String, Void, ArrayList<Item>> {
+        @Override
+        protected ArrayList<Item> doInBackground(String... params) {
+            ArrayList<Item> litems = netDB.getItemListFromServer(params[0]);
+            return litems;
+        }
+    }
+
+    private class SendTask extends AsyncTask<String, Void, Void> {
+        @Override
+        protected Void doInBackground(String... params) {
+            netDB.send(params[0]);
+            return null;
+        }
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        netDB = new NetworkDB();
+        FetchJSONTask fetchJSON = new FetchJSONTask();
+        fetchJSON.execute(netDB.Shopping_URL + "&op=list");
         mItemsDB = ItemsDB.get(getActivity());
         mItemsDB.addObserver(this);
     }
@@ -86,6 +110,10 @@ public class ListFragment extends Fragment implements Observer {
         @Override
         public void onClick(View v) {
             mItemsDB.deleteItem(mItem);
+            SendTask sendURL = new SendTask();
+            sendURL.execute(netDB.Shopping_URL +
+                    "&op=delete&what=" + mWhatTextView.getText().toString().trim());
+            Toast.makeText(getActivity(), R.string.addedItem_toast, Toast.LENGTH_SHORT).show();
         }
     }
 

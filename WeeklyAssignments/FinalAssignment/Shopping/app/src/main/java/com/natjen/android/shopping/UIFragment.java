@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -38,11 +39,22 @@ public class UIFragment extends Fragment implements Observer {
     // Model: Database of mItems
     private static ItemsDB mItemsDB;
 
+    private NetworkDB netDB;
+
+    private class SendTask extends AsyncTask<String, Void, Void> {
+        @Override
+        protected Void doInBackground(String... params) {
+            netDB.send(params[0]);
+            return null;
+        }
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
         mItemsDB = ItemsDB.get(getActivity());
+        netDB = new NetworkDB();
     }
 
     @Override
@@ -87,9 +99,12 @@ public class UIFragment extends Fragment implements Observer {
                 String where = mWhereItem.getText().toString().trim();
 
                 if (!what.isEmpty() && !where.isEmpty()) {
+                    SendTask sendURL = new SendTask();
+                    sendURL.execute(netDB.Shopping_URL +
+                            "&op=insert&what=" + what + "&where=" + where);
                     mItemsDB.addItem(what, where);
                     mWhatItem.setText("");
-                    mWhereItem.setText(R.string.whereItemShop_text);
+                    mWhereItem.setText("");
                     Toast.makeText(getActivity(), R.string.addedItem_toast, Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getActivity(), R.string.inputItem_toast, Toast.LENGTH_SHORT).show();

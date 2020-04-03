@@ -9,7 +9,8 @@
 
     <string name="whatItem_text">What item?</string>
     <string name="whereItem_text">Where?</string>¨
-    <string name="whereItemShop_text">Click to add a shop</string>
+    <string name="whatItem_hint">Type name of item</string>
+    <string name="whereItemShop_hint">Click to add a shop</string>
 
     <string name="listItems_button">List all items</string>
     <string name="newItem_button">Add new item</string>
@@ -20,8 +21,10 @@
 
     <string name="addedItem_toast">Item added to list</string>
     <string name="inputItem_toast">Input text in both fields</string>
+    <string name="chooseShop_toast">Choose a shop from the list</string>
+    <string name="deleteItem_toast">Item deleted!</string>
 
-    <string name="typeWhat_toast">Type in what to delete</string>
+    <string name="tip">Tip: Click on item to delete it!</string>
 
     <string name="space">%d</string>
 
