@@ -113,7 +113,7 @@ public class ListFragment extends Fragment implements Observer {
             SendTask sendURL = new SendTask();
             sendURL.execute(netDB.Shopping_URL +
                     "&op=delete&what=" + mWhatTextView.getText().toString().trim());
-            Toast.makeText(getActivity(), R.string.addedItem_toast, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), R.string.deleteItem_toast, Toast.LENGTH_SHORT).show();
         }
     }
 
