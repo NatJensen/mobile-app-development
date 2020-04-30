@@ -6,9 +6,11 @@ public class Item {
     private UUID mId;
     private String mWhat;
     private String mWhere;
+    private int mSyncStatus;
 
     public Item(String what, String where) {
         this(UUID.randomUUID());
+        this.setSyncStatus(mSyncStatus);
         mWhat = what;
         mWhere = where;
     }
@@ -40,6 +42,14 @@ public class Item {
 
     public void setWhere(String where) {
         mWhere = where;
+    }
+
+    public int getSyncStatus() {
+        return mSyncStatus;
+    }
+
+    public void setSyncStatus(int syncStatus) {
+        mSyncStatus = syncStatus;
     }
 
     public String oneLine(String pre, String post) {

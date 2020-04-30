@@ -16,6 +16,7 @@
     <string name="newItem_button">Add new item</string>
 
     <string name="item_no_label">Item no.</string>
+    <string name="item_sync_label">Sync.</string>
     <string name="item_what_label">Item</string>
     <string name="item_where_label">Shop</string>
 
@@ -29,4 +30,7 @@
     <string name="space">%d</string>
 
     <string name="shop_picker_title">Choose a shop</string>
+
+    <string name="image_description_synced">Synced</string>
+    <string name="image_description_not_synced">Waiting for sync</string>
 </resources>

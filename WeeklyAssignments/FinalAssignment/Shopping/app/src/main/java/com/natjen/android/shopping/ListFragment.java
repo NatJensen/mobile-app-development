@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -86,6 +87,7 @@ public class ListFragment extends Fragment implements Observer {
     }
 
     private class ItemHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        private ImageView mImageView;
         private TextView mNoView;
         private TextView mWhatTextView;
         private TextView mWhereTextView;
@@ -94,7 +96,8 @@ public class ListFragment extends Fragment implements Observer {
 
         ItemHolder(View itemView) {
             super(itemView);
-            mNoView = itemView.findViewById(R.id.item_no);
+            mImageView = itemView.findViewById(R.id.sync_image);
+            //mNoView = itemView.findViewById(R.id.item_no);
             mWhatTextView = itemView.findViewById(R.id.item_what);
             mWhereTextView = itemView.findViewById(R.id.item_where);
             itemView.setOnClickListener(this);
@@ -102,7 +105,7 @@ public class ListFragment extends Fragment implements Observer {
 
         void bind(Item item, int position) {
             mItem = item;
-            mNoView.setText(getString(R.string.space, position));
+            //mNoView.setText(getString(R.string.space, position));
             mWhatTextView.setText(mItem.getWhat());
             mWhereTextView.setText(mItem.getWhere());
         }

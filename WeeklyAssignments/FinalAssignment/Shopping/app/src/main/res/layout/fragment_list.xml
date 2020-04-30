@@ -24,14 +24,14 @@
 
     <!-- TextView for item number - label -->
     <TextView
-        android:id="@+id/item_no_label"
+        android:id="@+id/item_sync_label"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:padding="8dp"
-        android:text="@string/item_no_label"
+        android:text="@string/item_sync_label"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/list_recycler_view"
         app:layout_constraintEnd_toStartOf="@+id/item_what_label"
@@ -52,8 +52,8 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/list_recycler_view"
         app:layout_constraintEnd_toStartOf="@+id/item_where_label"
-        app:layout_constraintHorizontal_weight="3"
-        app:layout_constraintStart_toEndOf="@+id/item_no_label"
+        app:layout_constraintHorizontal_weight="4"
+        app:layout_constraintStart_toEndOf="@+id/item_sync_label"
         app:layout_constraintTop_toBottomOf="@+id/shoppingList" />
 
     <!-- TextView for where to buy the item - label -->
@@ -68,7 +68,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/list_recycler_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintHorizontal_weight="4"
         app:layout_constraintStart_toEndOf="@+id/item_what_label"
         app:layout_constraintTop_toBottomOf="@+id/shoppingList" />
 
